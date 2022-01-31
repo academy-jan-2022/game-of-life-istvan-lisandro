@@ -5,15 +5,6 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GameOfLifeShould {
-    @Test void
-    return_a_dead_cell_when_a_dead_cell_is_give(){
-        var gameOfLife = new GameOfLife();
-        int[] deadCell = {0};
-
-        var result = gameOfLife.nextGeneration(deadCell);
-
-        assertEquals(0, result[0]);
-    }
 
     @Test void
     return_a_dead_center_cell_when_two_dead_neighbours(){
@@ -35,5 +26,17 @@ public class GameOfLifeShould {
         assertEquals(1, result[1]);
     }
 
+    @Test void
+    return_two_live_and_two_dead_when_entering_four_live_in_a_row() {
+        var gameOfLife = new GameOfLife();
+        int[] input = {1, 1, 1, 1};
+
+        var result = gameOfLife.nextGeneration(input);
+
+        assertEquals(0, result[0]);
+        assertEquals(1, result[1]);
+        assertEquals(1, result[2]);
+        assertEquals(0, result[3]);
+    }
 
 }
