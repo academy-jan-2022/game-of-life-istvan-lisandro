@@ -25,5 +25,15 @@ public class GameOfLifeShould {
         assertEquals(0, result[1]);
     }
 
+    @Test void
+    a_alive_center_cell_when_when_two_alive_neighbours(){
+        var gameOfLife = new GameOfLife();
+        int[] deadCells = {1, 1, 1};
+
+        var result = gameOfLife.nextGeneration(deadCells);
+
+        assertEquals(1, result[1]);
+    }
+
 
 }
