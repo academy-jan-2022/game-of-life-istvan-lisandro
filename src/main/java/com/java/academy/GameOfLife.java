@@ -17,15 +17,19 @@ public class GameOfLife {
                 continue;
             }
 
-            if(cell[i-1] == 0 || cell[i+1] == 0 ){
+            if(!isCellAlive(cell[i-1]) || !isCellAlive(cell[i+1])){
                 result[i] = 0;
             };
 
-            if(cell[i-1] == 1 && cell[i+1] == 1){
+            if(isCellAlive(cell[i-1]) && isCellAlive(cell[i+1])) {
                 result[i] = cell[i] == 1 ? 1 : 0;
             }
         }
 
         return result;
+    }
+
+    private boolean isCellAlive(int cell) {
+        return cell == 1;
     }
 }
