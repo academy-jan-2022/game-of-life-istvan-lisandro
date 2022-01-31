@@ -14,4 +14,16 @@ public class GameOfLifeShould {
 
         assertEquals(0, result[0]);
     }
+
+    @Test void
+    return_3_dead_cells_when_3_dead_cells_are_given(){
+        var gameOfLife = new GameOfLife();
+        int[] deadCells = {0, 0, 0};
+
+        var result = gameOfLife.nextGeneration(deadCells);
+
+        assertEquals(0, result[1]);
+    }
+
+
 }
