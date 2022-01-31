@@ -16,7 +16,7 @@ public class GameOfLifeShould {
     }
 
     @Test void
-    return_3_dead_cells_when_3_dead_cells_are_given(){
+    return_a_dead_center_cell_when_two_dead_neighbours(){
         var gameOfLife = new GameOfLife();
         int[] deadCells = {0, 0, 0};
 
