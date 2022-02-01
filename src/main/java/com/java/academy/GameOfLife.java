@@ -1,7 +1,7 @@
 package com.java.academy;
 
 public class GameOfLife {
-    private World world;
+    private final World world;
 
     public GameOfLife(World world) {
         this.world = world;
@@ -29,14 +29,6 @@ public class GameOfLife {
                 }
             }
         }
-
-       /* for (int i = 0; i < world.getRows(); i++) {
-            for(int j = 0; j < world.getColumns(); j++){
-                if (world.isCellAlive(i, j)) {
-                    killCell(result[i], j);
-                }
-            }
-        }*/
 
         return result;
     }
