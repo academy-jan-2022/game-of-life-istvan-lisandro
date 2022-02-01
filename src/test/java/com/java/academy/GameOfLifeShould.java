@@ -3,7 +3,6 @@ package com.java.academy;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GameOfLifeShould {
 
@@ -15,7 +14,7 @@ public class GameOfLifeShould {
 
         var result = game.start();
 
-        assertEquals(worldToString(expected), worldToString(result));
+        assertArrayEquals(worldToArray(expected), worldToArray(result));
     }
 
     @Test void
@@ -26,7 +25,7 @@ public class GameOfLifeShould {
 
         var result = game.start();
 
-        assertEquals(worldToString(expected), worldToString(result));
+        assertArrayEquals(worldToArray(expected), worldToArray(result));
     }
 
     @Test void
@@ -37,7 +36,7 @@ public class GameOfLifeShould {
 
         var result = game.start();
 
-        assertEquals(worldToString(expected), worldToString(result));
+        assertArrayEquals(worldToArray(expected), worldToArray(result));
     }
 
     @Test void
@@ -48,7 +47,7 @@ public class GameOfLifeShould {
 
         var result = game.start();
 
-        assertEquals(worldToString(expected), worldToString(result));
+        assertArrayEquals(worldToArray(expected), worldToArray(result));
     }
 
     @Test void
@@ -59,7 +58,7 @@ public class GameOfLifeShould {
 
         var result = game.start();
 
-        assertEquals(worldToString(expected), worldToString(result));
+        assertArrayEquals(worldToArray(expected), worldToArray(result));
     }
 
     @Test void
@@ -77,32 +76,33 @@ public class GameOfLifeShould {
 
         var result = game.start();
 
-        assertEquals(worldToString(expected), worldToString(result));
+        assertArrayEquals(worldToArray(expected), worldToArray(result));
     }
 
     @Test void
-    return_one_alive_cell_and_two_dead_cells_when_entering_three_alive_cells_horizontally(){
-        var world = new World (new int [][]{{1,1,1}});
+    return_one_alive_cell_and_two_dead_cells_when_entering_three_alive_cells_horizontally() {
+        var world = new World(new int[][]{{1, 1, 1}});
         var game = new GameOfLife(world);
         World expected = new World(new int[][]{{0, 1, 0}});
 
         var result = game.start();
 
-        assertEquals(worldToString(expected), worldToString(result));
+        assertArrayEquals(worldToArray(expected), worldToArray(result));
     }
 
-    private String worldToString(World world){
-        StringBuilder stringifiedWorld = new StringBuilder();
+    private int[][] worldToArray(World world){
+        int[][] arrayWorld = new int[world.getRows()][world.getColumns()];
+
         for (int i = 0; i < world.getRows(); i++) {
             for(int j = 0; j < world.getColumns(); j++){
                 if(world.isCellAlive(i, j)){
-                    stringifiedWorld.append("1");
+                    arrayWorld[i][j] = 1;
                 }else{
-                    stringifiedWorld.append("0");
+                    arrayWorld[i][j] = 0;
                 }
             }
         }
 
-        return stringifiedWorld.toString();
+        return arrayWorld;
     }
 }
