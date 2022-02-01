@@ -72,13 +72,5 @@ public class GameOfLifeShould {
         assertArrayEquals(expected, result);
     }
 
-    @Test void
-    keep_center_cell_alive_when_two_alive_neighbours_horizontally(){
-        var game = new GameOfLife();
-        int[][] expected = {{0, 1, 0}};
 
-        var result = game.start(new int[][]{{1,1,1}});
-
-        assertArrayEquals(expected, result);
-    }
 }
