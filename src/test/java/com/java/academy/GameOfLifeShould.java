@@ -15,9 +15,9 @@ public class GameOfLifeShould {
     }
 
     @Test void
-    should_return_two_dead_cells_when_entering_two_dead_cell(){
+    should_return_two_dead_cells_when_entering_two_dead_cells(){
         var game = new GameOfLife();
-        var result = game.start(new int[][]{{0}});
+        var result = game.start(new int[][]{{0,0}});
 
         assertArrayEquals(new int[][]{{0, 0}}, result);
     }
