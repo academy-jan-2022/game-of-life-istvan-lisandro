@@ -10,6 +10,10 @@ public class GameOfLife {
             result[0][0] = 0;
         }
 
+        if(world[0].length > 1 && world[0][1] == 1){
+            result[0][1] = 0;
+        }
+
         return result;
     }
 }
