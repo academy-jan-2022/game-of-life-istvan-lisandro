@@ -55,7 +55,7 @@ public class WorldShould {
     return_dead_neighbour_on_the_left_if_first_position(){
         var world = new World(new int[][]{{0, 1}});
 
-        var result = world.getRightNeighbour(0,0);
+        var result = world.getLeftNeighbour(0,0);
 
         assertEquals(0, result);
     }
