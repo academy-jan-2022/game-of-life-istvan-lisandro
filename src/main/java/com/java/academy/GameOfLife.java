@@ -12,11 +12,31 @@ public class GameOfLife {
 
         for (int i = 0; i < world.getRows(); i++) {
             for(int j = 0; j < world.getColumns(); j++){
-                if (world.isCellAlive(i, j)) {
+                if(j == 0 || j == world.getColumns() -1){
+                    continue;
+                }
+
+                if (world.isCellAlive(i, j) &&
+                    world.isCellAlive(i, j-1) &&
+                    world.isCellAlive(i, j+1)
+                ) {
+                    killCell(result[i], j-1);
+                    result[i][j] = 1;
+                    killCell(result[i], j+1);
+
+                } else {
                     killCell(result[i], j);
                 }
             }
         }
+
+       /* for (int i = 0; i < world.getRows(); i++) {
+            for(int j = 0; j < world.getColumns(); j++){
+                if (world.isCellAlive(i, j)) {
+                    killCell(result[i], j);
+                }
+            }
+        }*/
 
         return result;
     }

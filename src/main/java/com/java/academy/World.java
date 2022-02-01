@@ -1,10 +1,12 @@
 package com.java.academy;
 
+import java.util.Arrays;
+
 public class World {
     private final int[][] world;
 
     public World(int[][] grid) {
-        this.world = new int[grid.length][grid[0].length];
+        this.world = grid;
     }
 
     public int getRows() {
