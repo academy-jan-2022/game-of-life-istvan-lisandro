@@ -20,7 +20,7 @@ public class World {
     }
 
     public int getRightNeighbour(int xAxis, int yAxis) {
-        if (getColumns() > 1) {
+        if (getColumns() > 1 && yAxis < getColumns() -1) {
             return world[xAxis][yAxis + 1];
         }
         return 0;
