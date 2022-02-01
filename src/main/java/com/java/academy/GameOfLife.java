@@ -7,7 +7,7 @@ public class GameOfLife {
         this.world = world;
     }
 
-    public int[][] start() {
+    public World start() {
         var result = new int[world.getRows()][world.getColumns()];
 
         for (int i = 0; i < world.getRows(); i++) {
@@ -30,7 +30,7 @@ public class GameOfLife {
             }
         }
 
-        return result;
+        return new World(result);
     }
 
     private void killCell(int[] row, int position) {
