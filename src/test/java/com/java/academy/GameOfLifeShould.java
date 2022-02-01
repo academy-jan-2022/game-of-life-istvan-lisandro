@@ -39,12 +39,10 @@ public class GameOfLifeShould {
     }
 
     @Test void
-    return_three_dead_cells_when_entering_one_dead_cell1_and_two_alive(){
+    return_four_dead_cells_when_entering_two_dead_cells_and_two_alive(){
         var game = new GameOfLife();
-        var result = game.start(new int[][]{{1,1,0}});
+        var result = game.start(new int[][]{{0,1,1,0}});
 
-        assertArrayEquals(new int[][]{{0, 0, 0}}, result);
+        assertArrayEquals(new int[][]{{0, 0, 0, 0}}, result);
     }
-
-
 }
