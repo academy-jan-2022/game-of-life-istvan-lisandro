@@ -45,4 +45,5 @@ public class GameOfLifeShould {
 
         assertArrayEquals(new int[][]{{0, 0, 0, 0}}, result);
     }
+
 }
