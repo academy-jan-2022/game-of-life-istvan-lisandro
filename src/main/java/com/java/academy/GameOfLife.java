@@ -21,7 +21,7 @@ public class GameOfLife {
                     world.isCellAlive(i, j+1)
                 ) {
                     killCell(result[i], j-1);
-                    result[i][j] = 1;
+                    bringCellToLife(result[i], j);
                     killCell(result[i], j+1);
 
                 } else {
@@ -35,5 +35,9 @@ public class GameOfLife {
 
     private void killCell(int[] row, int position) {
         row[position] = 0;
+    }
+
+    private void bringCellToLife(int[] row, int position) {
+        row[position] = 1;
     }
 }
