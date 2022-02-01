@@ -25,4 +25,8 @@ public class World {
         }
         return 0;
     }
+
+    public int getLeftNeighbour(int xAxis, int yAxis) {
+        return null;
+    }
 }
