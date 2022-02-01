@@ -6,18 +6,20 @@ public class GameOfLife {
     public int[][] start(int[][] world) {
         var result = Arrays.copyOf(world, world.length);
 
-        if (world[0][0] == 1) {
-            result[0][0] = 0;
-        }
-
-        if(world[0].length > 1 && world[0][1] == 1){
-            result[0][1] = 0;
-        }
-
-        if(world[0].length > 2 && world[0][2] == 1){
-            result[0][2] = 0;
+        for (int i = 0; i < world[0].length; i++) {
+            if (isItAlive(world[0], i)) {
+                killCell(result[0], i);
+            }
         }
 
         return result;
+    }
+
+    private boolean isItAlive(int[] row, int position) {
+        return row[position] == 1;
+    }
+
+    private void killCell(int[] row, int position) {
+        row[position] = 0;
     }
 }

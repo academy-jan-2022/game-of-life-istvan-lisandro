@@ -46,4 +46,20 @@ public class GameOfLifeShould {
         assertArrayEquals(new int[][]{{0, 0, 0, 0}}, result);
     }
 
+    @Test void
+    return_all_dead_cells_when_entering_non_evolving_positioned_live_cells(){
+        var game = new GameOfLife();
+        var result = game.start(new int[][]{
+            {1,0,1,0},
+            {0,0,0,1}
+        });
+
+        var expected = new int[][] {
+            {0,0,0,0},
+            {0,0,0,0}
+        };
+
+        assertArrayEquals(expected, result);
+    }
+
 }
