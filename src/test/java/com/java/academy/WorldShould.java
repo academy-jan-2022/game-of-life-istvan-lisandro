@@ -42,4 +42,13 @@ public class WorldShould {
         assertEquals(0, result);
     }
 
+    @Test void
+    return_alive_neighbour_on_the_left(){
+        var world = new World(new int[][]{{1, 0}});
+
+        var result = world.getLeftNeighbour(0,1);
+
+        assertEquals(1, result);
+    }
+
 }
