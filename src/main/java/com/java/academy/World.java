@@ -20,6 +20,6 @@ public class World {
     }
 
     public int getRightNeighbour(int xAxis, int yAxis) {
-        return world[xAxis][yAxis+1];
+        return 0;
     }
 }
