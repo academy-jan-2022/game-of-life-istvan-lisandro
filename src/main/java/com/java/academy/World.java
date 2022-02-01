@@ -27,7 +27,7 @@ public class World {
     }
 
     public int getLeftNeighbour(int xAxis, int yAxis) {
-        if (getColumns() > 1 && yAxis >= 1) {
+        if (getColumns() > 1 && yAxis > 0) {
             return world[xAxis][yAxis -1];
         }
         return 0;
