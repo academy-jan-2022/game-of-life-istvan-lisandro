@@ -1,25 +1,24 @@
 package com.java.academy;
 
-import java.util.Arrays;
-
 public class GameOfLife {
-    public int[][] start(int[][] world) {
-        var result = Arrays.copyOf(world, world.length);
+    private World world;
 
+    public GameOfLife(World world) {
+        this.world = world;
+    }
 
-        for (int i = 0; i < world.length; i++) {
-            for(int j = 0; j < world[i].length; j++){
-                if (isItAlive(world[i], j)) {
+    public int[][] start() {
+        var result = new int[world.getRows()][world.getColumns()];
+
+        for (int i = 0; i < world.getRows(); i++) {
+            for(int j = 0; j < world.getColumns(); j++){
+                if (world.isCellAlive(i, j)) {
                     killCell(result[i], j);
                 }
             }
         }
 
         return result;
-    }
-
-    private boolean isItAlive(int[] row, int position) {
-        return row[position] == 1;
     }
 
     private void killCell(int[] row, int position) {
