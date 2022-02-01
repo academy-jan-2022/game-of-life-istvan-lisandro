@@ -1,7 +1,5 @@
 package com.java.academy;
 
-import java.util.Arrays;
-
 public class World {
     private final int[][] world;
 
@@ -21,4 +19,7 @@ public class World {
         return world[row][position] == 1;
     }
 
+    public int getRightNeighbour(int xAxis, int yAxis) {
+        return world[xAxis][yAxis+1];
+    }
 }
