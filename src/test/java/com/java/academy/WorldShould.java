@@ -141,4 +141,13 @@ public class WorldShould {
         assertEquals(0, result);
     }
 
+    @Test void
+    return_alive_neighbour_on_bottom_left(){
+        var world = new World(new int[][]{{0, 0}, {1,0}});
+
+        var result = world.getBottomLeftNeighbour(0,1);
+
+        assertEquals(1, result);
+    }
+
 }
