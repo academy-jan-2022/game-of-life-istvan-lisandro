@@ -59,4 +59,13 @@ public class WorldShould {
 
         assertEquals(0, result);
     }
+
+    @Test void
+    return_dead_neighbour_on_top(){
+        var world = new World(new int[][]{{0}});
+
+        var result = world.getTopNeighbour(0,0);
+
+        assertEquals(0, result);
+    }
 }
