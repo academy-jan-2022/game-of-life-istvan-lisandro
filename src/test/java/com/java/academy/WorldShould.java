@@ -59,5 +59,4 @@ public class WorldShould {
 
         assertEquals(0, result);
     }
-
 }

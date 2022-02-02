@@ -20,16 +20,24 @@ public class World {
     }
 
     public int getRightNeighbour(int xAxis, int yAxis) {
-        if (getColumns() > 1 && yAxis < getColumns() -1) {
+        if (hasCellOnTheRight(yAxis)) {
             return world[xAxis][yAxis + 1];
         }
         return 0;
     }
 
     public int getLeftNeighbour(int xAxis, int yAxis) {
-        if (getColumns() > 1 && yAxis > 0) {
+        if (hasCellOnTheLeft(yAxis)) {
             return world[xAxis][yAxis -1];
         }
         return 0;
+    }
+
+    private boolean hasCellOnTheRight(int yAxis) {
+        return yAxis < getColumns() - 1;
+    }
+
+    private boolean hasCellOnTheLeft(int yAxis) {
+        return yAxis > 0;
     }
 }
