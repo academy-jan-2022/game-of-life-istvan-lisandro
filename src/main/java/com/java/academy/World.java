@@ -40,4 +40,8 @@ public class World {
     private boolean hasCellOnTheLeft(int yAxis) {
         return yAxis > 0;
     }
+
+    public int getTopNeighbour(int xAxis, int yAxis) {
+        return 0;
+    }
 }
