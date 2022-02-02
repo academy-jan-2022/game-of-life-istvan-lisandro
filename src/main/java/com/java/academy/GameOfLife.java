@@ -12,32 +12,32 @@ public class GameOfLife {
 
         for (int xAxis = 0; xAxis < world.getRows(); xAxis++) {
             for(int yAxis = 0; yAxis < world.getColumns(); yAxis++){
-                result[xAxis][yAxis] = updateCell(new Cell(xAxis, yAxis));
+                result[xAxis][yAxis] = updateCell(xAxis, yAxis);
             }
         }
 
         return new World(result);
     }
 
-    private int updateCell(Cell cell) {
-        if(shouldLiveOn(cell) || shouldComeToLife(cell)){
+    private int updateCell(int xAxis, int yAxis) {
+        if(shouldLiveOn(xAxis, yAxis) || shouldComeToLife(xAxis, yAxis)){
             return 1;
         }
 
         return 0;
     }
 
-    private boolean shouldComeToLife(Cell cell) {
+    private boolean shouldComeToLife(int xAxis, int yAxis) {
 
-        return !world.isCellAlive(cell.xAxis(), cell.yAxis()) &&
-            world.getAliveNeighbours(cell.xAxis(), cell.yAxis()) == 3;
+        return !world.isCellAlive(xAxis, yAxis) &&
+            world.getAliveNeighbours(xAxis, yAxis) == 3;
     }
 
-    private boolean shouldLiveOn(Cell cell) {
+    private boolean shouldLiveOn(int xAxis, int yAxis) {
 
-        return world.isCellAlive(cell.xAxis(), cell.yAxis()) &&
-            (world.getAliveNeighbours(cell.xAxis(), cell.yAxis()) == 2 ||
-                world.getAliveNeighbours(cell.xAxis(), cell.yAxis()) == 3);
+        return world.isCellAlive(xAxis, yAxis) &&
+            (world.getAliveNeighbours(xAxis, yAxis) == 2 ||
+                world.getAliveNeighbours(xAxis, yAxis) == 3);
     }
 
 }

@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class GameOfLifeShould {
+
     @Test void
     return_one_dead_ceLl_when_entering_one_dead_cell(){
         var world = new World (new int [][]{{0}});
