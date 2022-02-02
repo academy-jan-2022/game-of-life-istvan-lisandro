@@ -51,4 +51,8 @@ public class World {
     private boolean hasCellOnTop(int xAxis) {
         return xAxis > 0;
     }
+
+    public int getBottomNeighbour(int xAxis, int yAxis) {
+        return 0;
+    }
 }
