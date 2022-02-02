@@ -62,4 +62,8 @@ public class World {
     private boolean hasCellBelow(int xAxis) {
         return xAxis < getRows() - 1;
     }
+
+    public int getTopRightNeighbour(int xAxis, int yAxis) {
+        return 0;
+    }
 }
