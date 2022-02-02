@@ -10,60 +10,33 @@ public class GameOfLife {
     public World start() {
         var result = new int[world.getRows()][world.getColumns()];
 
-        for (int i = 0; i < world.getRows(); i++) {
-            for(int j = 0; j < world.getColumns(); j++){
-                updateWorld(result, i, j);
+        for (int xAxis = 0; xAxis < world.getRows(); xAxis++) {
+            for(int yAxis = 0; yAxis < world.getColumns(); yAxis++){
+                result[xAxis][yAxis] = updateCell(xAxis, yAxis);
             }
         }
 
         return new World(result);
     }
 
-    private void updateWorld(int[][] result, int i, int j) {
-//        if(j == 0 || j == world.getColumns() -1){
-//            return;
-//        }
-//
-//        if (world.isCellAlive(i, j) &&
-//            world.isCellAlive(i, j -1) &&
-//            world.isCellAlive(i, j +1)
-//        ) {
-//            killCell(result[i], j -1);
-//            bringCellToLife(result[i], j);
-//            killCell(result[i], j +1);
-//
-//        } else {
-//            killCell(result[i], j);
-//        }
-        if(world.isCellAlive(i,j) && world.getAliveNeighbours(i,j) <2) {
-            killCell(result[i], j);
-            return;
+    private int updateCell(int xAxis, int yAxis) {
+
+        if(shouldLiveOn(xAxis, yAxis) || shouldComeToLife(xAxis, yAxis)){
+            return 1;
         }
 
-        if(world.isCellAlive(i,j) &&
-            (world.getAliveNeighbours(i,j) == 2 ||
-                world.getAliveNeighbours(i,j) == 3))
-        {
-            bringCellToLife(result[i], j);
-            return;
-        }
-
-        if(world.isCellAlive(i,j) && world.getAliveNeighbours(i,j) >3) {
-            killCell(result[i], j);
-            return;
-        }
-
-        if(!world.isCellAlive(i,j) && world.getAliveNeighbours(i,j) == 3) {
-            bringCellToLife(result[i], j);
-
-        }
+        return 0;
     }
 
-    private void killCell(int[] row, int position) {
-        row[position] = 0;
+    private boolean shouldComeToLife(int xAxis, int yAxis) {
+        return !world.isCellAlive(xAxis, yAxis) &&
+            world.getAliveNeighbours(xAxis, yAxis) == 3;
     }
 
-    private void bringCellToLife(int[] row, int position) {
-        row[position] = 1;
+    private boolean shouldLiveOn(int xAxis, int yAxis) {
+        return world.isCellAlive(xAxis, yAxis) &&
+            (world.getAliveNeighbours(xAxis, yAxis) == 2 ||
+                world.getAliveNeighbours(xAxis, yAxis) == 3);
     }
+
 }
