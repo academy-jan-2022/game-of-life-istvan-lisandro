@@ -69,4 +69,8 @@ public class World {
         }
         return 0;
     }
+
+    public int getTopLeftNeighbour(int xAxis, int yAxis) {
+        return 0;
+    }
 }

@@ -114,4 +114,22 @@ public class WorldShould {
         assertEquals(1, result);
     }
 
+    @Test void
+    return_dead_neighbour_on_top_left(){
+        var world = new World(new int[][]{{0}});
+
+        var result = world.getTopLeftNeighbour(0,0);
+
+        assertEquals(0, result);
+    }
+
+    @Test void
+    return_alive_neighbour_on_top_left(){
+        var world = new World(new int[][]{{1, 0}, {1,0}});
+
+        var result = world.getTopLeftNeighbour(1,1);
+
+        assertEquals(1, result);
+    }
+
 }
