@@ -85,4 +85,8 @@ public class World {
 
         return 0;
     }
+
+    public int getBottomRightNeighbour(int xAxis, int yAxis) {
+        return 0;
+    }
 }
