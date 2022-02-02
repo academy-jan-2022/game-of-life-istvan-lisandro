@@ -42,9 +42,13 @@ public class World {
     }
 
     public int getTopNeighbour(int xAxis, int yAxis) {
-        if (xAxis > 0) {
+        if (hasCellOnTop(xAxis)) {
             return world[xAxis-1][yAxis];
         }
         return 0;
+    }
+
+    private boolean hasCellOnTop(int xAxis) {
+        return xAxis > 0;
     }
 }
