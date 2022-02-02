@@ -7,7 +7,7 @@ public class GameOfLife {
         this.world = world;
     }
 
-    public World start() {
+    public World evolve() {
         var result = new int[world.getRows()][world.getColumns()];
 
         for (int xAxis = 0; xAxis < world.getRows(); xAxis++) {

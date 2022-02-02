@@ -12,7 +12,7 @@ public class GameOfLifeShould {
         var game = new GameOfLife(world);
         World expected = new World(new int[][]{{0}});
 
-        var result = game.start();
+        var result = game.evolve();
 
         assertArrayEquals(worldToArray(expected), worldToArray(result));
     }
@@ -23,7 +23,7 @@ public class GameOfLifeShould {
         var game = new GameOfLife(world);
         World expected = new World(new int[][]{{0, 0}});
 
-        var result = game.start();
+        var result = game.evolve();
 
         assertArrayEquals(worldToArray(expected), worldToArray(result));
     }
@@ -34,7 +34,7 @@ public class GameOfLifeShould {
         var game = new GameOfLife(world);
         World expected = new World(new int[][]{{0, 0, 0}});
 
-        var result = game.start();
+        var result = game.evolve();
 
         assertArrayEquals(worldToArray(expected), worldToArray(result));
     }
@@ -45,7 +45,7 @@ public class GameOfLifeShould {
         var game = new GameOfLife(world);
         World expected = new World(new int[][]{{0, 0, 0}});
 
-        var result = game.start();
+        var result = game.evolve();
 
         assertArrayEquals(worldToArray(expected), worldToArray(result));
     }
@@ -56,7 +56,7 @@ public class GameOfLifeShould {
         var game = new GameOfLife(world);
         World expected = new World(new int[][]{{0, 0, 0, 0}});
 
-        var result = game.start();
+        var result = game.evolve();
 
         assertArrayEquals(worldToArray(expected), worldToArray(result));
     }
@@ -74,7 +74,7 @@ public class GameOfLifeShould {
             {0,0,0,0}
         });
 
-        var result = game.start();
+        var result = game.evolve();
 
         assertArrayEquals(worldToArray(expected), worldToArray(result));
     }
@@ -85,7 +85,7 @@ public class GameOfLifeShould {
         var game = new GameOfLife(world);
         World expected = new World(new int[][]{{0, 1, 0}});
 
-        var result = game.start();
+        var result = game.evolve();
 
         assertArrayEquals(worldToArray(expected), worldToArray(result));
     }
@@ -96,7 +96,7 @@ public class GameOfLifeShould {
         var game = new GameOfLife(world);
         World expected = new World(new int[][]{{0}, {1}, {0}});
 
-        var result = game.start();
+        var result = game.evolve();
 
         assertArrayEquals(worldToArray(expected), worldToArray(result));
     }
@@ -114,7 +114,7 @@ public class GameOfLifeShould {
             {0,1,0},
             {0,1,0}});
 
-        var result = game.start();
+        var result = game.evolve();
 
         assertArrayEquals(worldToArray(expected), worldToArray(result));
     }
