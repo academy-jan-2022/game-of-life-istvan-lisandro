@@ -91,7 +91,7 @@ public class WorldShould {
     return_alive_neighbour_from_below(){
         var world = new World(new int[][]{{0, 0}, {1,0}});
 
-        var result = world.getTopNeighbour(0,0);
+        var result = world.getBottomNeighbour(0,0);
 
         assertEquals(1, result);
     }

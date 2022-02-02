@@ -53,6 +53,9 @@ public class World {
     }
 
     public int getBottomNeighbour(int xAxis, int yAxis) {
+        if(xAxis < getRows() -1){
+            return world[xAxis + 1][yAxis];
+        }
         return 0;
     }
 }
