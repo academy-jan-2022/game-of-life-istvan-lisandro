@@ -20,7 +20,6 @@ public class GameOfLife {
     }
 
     private int updateCell(int xAxis, int yAxis) {
-
         if(shouldLiveOn(xAxis, yAxis) || shouldComeToLife(xAxis, yAxis)){
             return 1;
         }
@@ -29,11 +28,13 @@ public class GameOfLife {
     }
 
     private boolean shouldComeToLife(int xAxis, int yAxis) {
+
         return !world.isCellAlive(xAxis, yAxis) &&
             world.getAliveNeighbours(xAxis, yAxis) == 3;
     }
 
     private boolean shouldLiveOn(int xAxis, int yAxis) {
+
         return world.isCellAlive(xAxis, yAxis) &&
             (world.getAliveNeighbours(xAxis, yAxis) == 2 ||
                 world.getAliveNeighbours(xAxis, yAxis) == 3);
