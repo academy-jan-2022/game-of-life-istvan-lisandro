@@ -20,20 +20,42 @@ public class GameOfLife {
     }
 
     private void updateWorld(int[][] result, int i, int j) {
-        if(j == 0 || j == world.getColumns() -1){
+//        if(j == 0 || j == world.getColumns() -1){
+//            return;
+//        }
+//
+//        if (world.isCellAlive(i, j) &&
+//            world.isCellAlive(i, j -1) &&
+//            world.isCellAlive(i, j +1)
+//        ) {
+//            killCell(result[i], j -1);
+//            bringCellToLife(result[i], j);
+//            killCell(result[i], j +1);
+//
+//        } else {
+//            killCell(result[i], j);
+//        }
+        if(world.isCellAlive(i,j) && world.getAliveNeighbours(i,j) <2) {
+            killCell(result[i], j);
             return;
         }
 
-        if (world.isCellAlive(i, j) &&
-            world.isCellAlive(i, j -1) &&
-            world.isCellAlive(i, j +1)
-        ) {
-            killCell(result[i], j -1);
+        if(world.isCellAlive(i,j) &&
+            (world.getAliveNeighbours(i,j) == 2 ||
+                world.getAliveNeighbours(i,j) == 3))
+        {
             bringCellToLife(result[i], j);
-            killCell(result[i], j +1);
+            return;
+        }
 
-        } else {
+        if(world.isCellAlive(i,j) && world.getAliveNeighbours(i,j) >3) {
             killCell(result[i], j);
+            return;
+        }
+
+        if(!world.isCellAlive(i,j) && world.getAliveNeighbours(i,j) == 3) {
+            bringCellToLife(result[i], j);
+
         }
     }
 
