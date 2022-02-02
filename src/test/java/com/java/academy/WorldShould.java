@@ -109,7 +109,7 @@ public class WorldShould {
     return_alive_neighbour_on_top_right(){
         var world = new World(new int[][]{{0, 1}, {1,0}});
 
-        var result = world.getBottomNeighbour(1,0);
+        var result = world.getTopRightNeighbour(1,0);
 
         assertEquals(1, result);
     }

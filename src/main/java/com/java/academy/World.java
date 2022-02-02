@@ -64,6 +64,9 @@ public class World {
     }
 
     public int getTopRightNeighbour(int xAxis, int yAxis) {
+        if (hasCellOnTop(xAxis) && hasCellOnTheRight(yAxis)) {
+            return world[xAxis-1][yAxis+1];
+        }
         return 0;
     }
 }
