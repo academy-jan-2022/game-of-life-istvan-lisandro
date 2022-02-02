@@ -79,6 +79,10 @@ public class World {
     }
 
     public int getBottomLeftNeighbour(int xAxis, int yAxis) {
+        if (hasCellOnTheLeft(yAxis) && hasCellBelow(xAxis)) {
+            return world[xAxis + 1][yAxis - 1];
+        }
+
         return 0;
     }
 }
