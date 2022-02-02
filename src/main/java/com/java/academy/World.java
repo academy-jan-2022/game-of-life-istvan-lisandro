@@ -77,4 +77,8 @@ public class World {
 
         return 0;
     }
+
+    public int getBottomLeftNeighbour(int xAxis, int yAxis) {
+        return 0;
+    }
 }
