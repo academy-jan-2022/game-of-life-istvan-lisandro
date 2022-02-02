@@ -168,4 +168,13 @@ public class WorldShould {
         assertEquals(1, result);
     }
 
+    @Test void
+    return_all_alive_neighbours(){
+        var world = new World(new int[][]{{1, 1, 1}, {1, 0, 1}, {1, 1, 1}});
+
+        var result = world.getAliveNeighbours(1,1);
+
+        assertEquals(8, result);
+    }
+
 }

@@ -92,4 +92,8 @@ public class World {
         }
         return 0;
     }
+
+    public int getAliveNeighbours(int xAxis, int yAxis) {
+        return 0;
+    }
 }
