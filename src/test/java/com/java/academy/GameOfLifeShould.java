@@ -101,6 +101,24 @@ public class GameOfLifeShould {
         assertArrayEquals(worldToArray(expected), worldToArray(result));
     }
 
+    @Test void
+    return_mid_vertical_live_when_passing_in_mid_horizontal_live(){
+        var world = new World (new int [][]{
+            {0,0,0},
+            {1,1,1},
+            {0,0,0}}
+        );
+        var game = new GameOfLife(world);
+        World expected = new World(new int[][]{
+            {0,1,0},
+            {0,1,0},
+            {0,1,0}});
+
+        var result = game.start();
+
+        assertArrayEquals(worldToArray(expected), worldToArray(result));
+    }
+
     private int[][] worldToArray(World world){
         int[][] arrayWorld = new int[world.getRows()][world.getColumns()];
 
