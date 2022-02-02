@@ -28,7 +28,7 @@ public class World {
 
     public int getLeftNeighbour(int xAxis, int yAxis) {
         if (hasCellOnTheLeft(yAxis)) {
-            return world[xAxis][yAxis -1];
+            return world[xAxis][yAxis - 1];
         }
         return 0;
     }
@@ -43,7 +43,7 @@ public class World {
 
     public int getTopNeighbour(int xAxis, int yAxis) {
         if (hasCellOnTop(xAxis)) {
-            return world[xAxis-1][yAxis];
+            return world[xAxis - 1][yAxis];
         }
         return 0;
     }
@@ -53,7 +53,7 @@ public class World {
     }
 
     public int getBottomNeighbour(int xAxis, int yAxis) {
-        if(hasCellBelow(xAxis)){
+        if (hasCellBelow(xAxis)) {
             return world[xAxis + 1][yAxis];
         }
         return 0;
@@ -65,14 +65,14 @@ public class World {
 
     public int getTopRightNeighbour(int xAxis, int yAxis) {
         if (hasCellOnTop(xAxis) && hasCellOnTheRight(yAxis)) {
-            return world[xAxis-1][yAxis+1];
+            return world[xAxis - 1][yAxis + 1];
         }
         return 0;
     }
 
     public int getTopLeftNeighbour(int xAxis, int yAxis) {
         if (hasCellOnTop(xAxis) && hasCellOnTheLeft(yAxis)) {
-            return world[xAxis-1][yAxis-1];
+            return world[xAxis - 1][yAxis - 1];
         }
 
         return 0;
@@ -94,6 +94,13 @@ public class World {
     }
 
     public int getAliveNeighbours(int xAxis, int yAxis) {
-        return 0;
+        return getTopLeftNeighbour(xAxis, yAxis) +
+               getTopNeighbour(xAxis, yAxis) +
+               getTopRightNeighbour(xAxis, yAxis) +
+               getRightNeighbour(xAxis, yAxis) +
+               getBottomRightNeighbour(xAxis, yAxis) +
+               getBottomNeighbour(xAxis, yAxis) +
+               getBottomLeftNeighbour(xAxis, yAxis) +
+               getLeftNeighbour(xAxis, yAxis);
     }
 }
